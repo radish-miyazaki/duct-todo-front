@@ -21,4 +21,5 @@ pom.xml.asc
 
 .DS_Store
 .lsp/
+.clj-kondo/.cache
 
