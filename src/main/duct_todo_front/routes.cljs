@@ -9,8 +9,10 @@
         "create" :duct-todo-front.views/create
         [[#"\d+" :id] "/edit"] :duct-todo-front.views/edit}])
 
+(def path-for (partial bidi/path-for routes))
+
 (defn navigate
   ([view] (navigate view {}))
   ([view params]
-   (accountant/navigate! (apply bidi/path-for routes view (apply concat params)))))
+   (accountant/navigate! (apply path-for view (apply concat params)))))
 
