@@ -52,6 +52,16 @@
  (fn [db [_ res]]
    (assoc db :selected-todo res)))
 
+(re-frame/reg-event-db
+ ::open-delete-dialog
+ (fn [db [_ todo-id]]
+   (assoc db :delete-dialog {:todo-id todo-id})))
+
+(re-frame/reg-event-db
+ ::close-delete-dialog
+ (fn [db _]
+   (assoc db :delete-dialog nil)))
+
 (re-frame/reg-event-fx
  ::fetch-todos
  (fn [_ _]
