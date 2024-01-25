@@ -4,10 +4,9 @@
    [bidi.bidi :as bidi]))
 
 (def routes
-  ["/" {"" :duct-todo-front.views/home
-        "list" :duct-todo-front.views/list
+  ["/" {"" :duct-todo-front.views/list
         "create" :duct-todo-front.views/create
-        ["/edit" [#"\d+" :id]] :duct-todo-front.views/edit}])
+        ["edit/" [#"\d+" :id]] :duct-todo-front.views/edit}])
 
 (def path-for (partial bidi/path-for routes))
 
