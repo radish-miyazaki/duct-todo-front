@@ -7,7 +7,7 @@
   ["/" {"" :duct-todo-front.views/home
         "list" :duct-todo-front.views/list
         "create" :duct-todo-front.views/create
-        [[#"\d+" :id] "/edit"] :duct-todo-front.views/edit}])
+        ["/edit" [#"\d+" :id]] :duct-todo-front.views/edit}])
 
 (def path-for (partial bidi/path-for routes))
 
