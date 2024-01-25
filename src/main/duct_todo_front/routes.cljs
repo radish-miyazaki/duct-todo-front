@@ -1,4 +1,4 @@
-(ns duct-todo-front.routes
+(ns duct-todo-front.routes 
   (:require
    [accountant.core :as accountant]
    [bidi.bidi :as bidi]))
@@ -9,6 +9,8 @@
         "create" :duct-todo-front.views/create
         [[#"\d+" :id] "/edit"] :duct-todo-front.views/edit}])
 
-(defn navigate [view]
-  (accountant/navigate! (bidi/path-for routes view)))
+(defn navigate
+  ([view] (navigate view {}))
+  ([view params]
+   (accountant/navigate! (apply bidi/path-for routes view (apply concat params)))))
 
